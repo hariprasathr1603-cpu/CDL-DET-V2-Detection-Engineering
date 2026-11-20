@@ -1,0 +1,20 @@
+﻿title: Suspicious Reconnaissance Command Spawned by PowerShell
+id: 9c2e4f6a-8b1d-4e3f-a5c7-1d3e5f7a9b0c
+status: experimental
+description: Detects reconnaissance commands such as whoami executed from PowerShell, commonly observed after script launcher execution.
+author: Hari
+date: 2026/11/20
+tags:
+    - attack.discovery
+    - attack.t1033
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        ParentImage|endswith: '\powershell.exe'
+        Image|endswith: '\whoami.exe'
+    condition: selection
+falsepositives:
+    - Administrative troubleshooting or automation scripts
+level: medium
