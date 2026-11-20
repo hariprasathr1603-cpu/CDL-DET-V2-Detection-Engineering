@@ -1,0 +1,23 @@
+title: Suspicious Mshta Remote or Script Execution
+id: 7c1f3a52-9b4e-4d8a-a6e1-3f2b8c5d9e41
+status: experimental
+description: Detects mshta.exe launching remote content, script protocols, or HTA files.
+author: Hari
+date: 2026-11-20
+tags:
+    - attack.t1218.005
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith: '\mshta.exe'
+        CommandLine|contains:
+            - 'http'
+            - 'javascript:'
+            - 'vbscript:'
+            - '.hta'
+    condition: selection
+falsepositives:
+    - Legitimate administrative HTA scripts
+level: high

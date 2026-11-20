@@ -1,0 +1,58 @@
+title: Correlated Script Launcher Followed by Discovery
+id: f07997f0-667a-4b9e-89e3-fb4f2e1184f0
+status: experimental
+description: Script host execution correlated with discovery activity
+references:
+  - https://attack.mitre.org/techniques/T1059
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1059
+logsource:
+  product: windows
+detection:
+  sel_script:
+    EventID: 1
+    Image|endswith:
+      - \wscript.exe
+      - \cscript.exe
+      - \powershell.exe
+  sel_recon:
+    EventID: 1
+    Image|endswith:
+      - \whoami.exe
+      - \net.exe
+      - \nltest.exe
+  condition: sel_script and sel_recon
+falsepositives:
+  - Admin diagnostic workflow
+ 'level: ' + title: Correlated Script Launcher Followed by Discovery
+id: f07997f0-667a-4b9e-89e3-fb4f2e1184f0
+status: experimental
+description: Script host execution correlated with discovery activity
+references:
+  - https://attack.mitre.org/techniques/T1059
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1059
+logsource:
+  product: windows
+detection:
+  sel_script:
+    EventID: 1
+    Image|endswith:
+      - \wscript.exe
+      - \cscript.exe
+      - \powershell.exe
+  sel_recon:
+    EventID: 1
+    Image|endswith:
+      - \whoami.exe
+      - \net.exe
+      - \nltest.exe
+  condition: sel_script and sel_recon
+falsepositives:
+  - Admin diagnostic workflow
+level: {lvl}
+.Groups[1].Value.Trim().ToLower() 

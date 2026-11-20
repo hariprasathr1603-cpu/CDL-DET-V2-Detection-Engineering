@@ -1,0 +1,25 @@
+title: Encoded PowerShell Command Execution
+id: ee47d0bc-b3ba-477b-a2b0-5bbb6c53debc
+status: experimental
+description: PowerShell invoked with encoded command flag
+references:
+  - https://attack.mitre.org/techniques/T1059/001
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1059.001
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 1
+    Image|endswith:
+      - \powershell.exe
+      - \pwsh.exe
+    CommandLine|contains:
+      -  -enc
+      -  -encodedcommand
+  condition: selection
+falsepositives:
+  - Legitimate management scripts using encoded arguments
+level: high

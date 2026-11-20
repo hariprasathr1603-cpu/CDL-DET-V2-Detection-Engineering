@@ -1,0 +1,24 @@
+title: Bitsadmin File Transfer Activity
+id: a53a1fe4-eba9-42b4-bf73-67892770a5e5
+status: experimental
+description: Bitsadmin used to transfer remote files
+references:
+  - https://attack.mitre.org/techniques/T1197
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1197
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 1
+    Image|endswith: \bitsadmin.exe
+    CommandLine|contains:
+      - /transfer
+      - --transfer
+      - http
+  condition: selection
+falsepositives:
+  - Software update utilities
+level: medium

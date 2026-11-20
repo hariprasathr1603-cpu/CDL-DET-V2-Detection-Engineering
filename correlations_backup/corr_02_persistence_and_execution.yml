@@ -1,0 +1,54 @@
+title: Correlated Persistence Setup and Payload Execution
+id: 0284dad5-beb7-4cfe-8e2d-f987390c281b
+status: experimental
+description: Persistence mechanism paired with execution activity
+references:
+  - https://attack.mitre.org/techniques/T1547
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1547
+logsource:
+  product: windows
+detection:
+  sel_persist:
+    EventID: 1
+    Image|endswith: \schtasks.exe
+    CommandLine|contains: /create
+  sel_exec:
+    EventID: 1
+    Image|endswith:
+      - \powershell.exe
+      - \cmd.exe
+      - \mshta.exe
+  condition: sel_persist and sel_exec
+falsepositives:
+  - Scheduled maintenance tasks
+ 'level: ' + title: Correlated Persistence Setup and Payload Execution
+id: 0284dad5-beb7-4cfe-8e2d-f987390c281b
+status: experimental
+description: Persistence mechanism paired with execution activity
+references:
+  - https://attack.mitre.org/techniques/T1547
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1547
+logsource:
+  product: windows
+detection:
+  sel_persist:
+    EventID: 1
+    Image|endswith: \schtasks.exe
+    CommandLine|contains: /create
+  sel_exec:
+    EventID: 1
+    Image|endswith:
+      - \powershell.exe
+      - \cmd.exe
+      - \mshta.exe
+  condition: sel_persist and sel_exec
+falsepositives:
+  - Scheduled maintenance tasks
+level: {lvl}
+.Groups[1].Value.Trim().ToLower() 

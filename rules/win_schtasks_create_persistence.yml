@@ -1,0 +1,21 @@
+title: Scheduled Task Creation via Schtasks
+id: 2ac63a98-183f-4211-b162-08d16d7dda91
+status: experimental
+description: Creation of scheduled tasks from command line
+references:
+  - https://attack.mitre.org/techniques/T1053/005
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1053.005
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 1
+    Image|endswith: \schtasks.exe
+    CommandLine|contains: /create
+  condition: selection
+falsepositives:
+  - System administration or software deployment
+level: medium

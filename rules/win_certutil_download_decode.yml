@@ -1,0 +1,24 @@
+title: Certutil Used for File Download or Decode
+id: ef9977d8-4bb6-4441-b4af-e7af2ad8f8a2
+status: experimental
+description: Certutil invoked with urlcache or decode flags
+references:
+  - https://attack.mitre.org/techniques/T1105
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1105
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 1
+    Image|endswith: \certutil.exe
+    CommandLine|contains:
+      - urlcache
+      - -decode
+      - /decode
+  condition: selection
+falsepositives:
+  - Certificate administration tasks
+level: medium

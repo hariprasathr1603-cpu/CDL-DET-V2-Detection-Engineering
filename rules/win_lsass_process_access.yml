@@ -1,0 +1,24 @@
+title: Suspicious Process Access to LSASS
+id: 2f5f27dd-d04d-4e5f-8d3a-9a3353aaeaad
+status: experimental
+description: Non-system process opening a handle to lsass.exe
+references:
+  - https://attack.mitre.org/techniques/T1003/001
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1003.001
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 10
+    TargetImage|endswith: \lsass.exe
+    SourceImage|endswith:
+      - \procdump.exe
+      - \powershell.exe
+      - \cmd.exe
+  condition: selection
+falsepositives:
+  - Endpoint security or diagnostics tools
+level: critical

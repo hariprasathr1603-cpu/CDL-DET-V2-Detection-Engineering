@@ -1,0 +1,22 @@
+title: Remote Service Execution Pattern via PsExec
+id: f64d7588-0952-4d0b-9049-a363f21128cc
+status: experimental
+description: Execution of PsExec binary for lateral movement or tooling
+references:
+  - https://attack.mitre.org/techniques/T1570
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1570
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 1
+    Image|endswith:
+      - \psexec.exe
+      - \psexesvc.exe
+  condition: selection
+falsepositives:
+  - Authorized remote admin tools
+level: high

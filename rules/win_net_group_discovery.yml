@@ -1,0 +1,24 @@
+title: Domain or Local Group Enumeration via Net
+id: 9f8aeedd-f308-4c67-834f-87cdd40e7247
+status: experimental
+description: Net command enumerating groups or accounts
+references:
+  - https://attack.mitre.org/techniques/T1069
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1069
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 1
+    Image|endswith: \net.exe
+    CommandLine|contains:
+      - group
+      - localgroup
+      - user
+  condition: selection
+falsepositives:
+  - Admin scripting or login checks
+level: low

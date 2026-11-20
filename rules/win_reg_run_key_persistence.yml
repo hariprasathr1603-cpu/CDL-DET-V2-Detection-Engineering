@@ -1,0 +1,22 @@
+title: Registry Run Key Persistence Modification
+id: dd4a7b39-9539-4767-ace9-eef7dd56329d
+status: experimental
+description: Modification of CurrentVersion Run or RunOnce keys
+references:
+  - https://attack.mitre.org/techniques/T1547/001
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1547.001
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 13
+    TargetObject|contains:
+      - \CurrentVersion\Run\
+      - \CurrentVersion\RunOnce\
+  condition: selection
+falsepositives:
+  - Legitimate startup applications
+level: high

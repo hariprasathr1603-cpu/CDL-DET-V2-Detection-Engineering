@@ -1,0 +1,20 @@
+title: Account Discovery via Whoami Execution
+id: cb75e57d-fdb0-41a2-bd13-406bd52f1697
+status: experimental
+description: Execution of whoami.exe for user context discovery
+references:
+  - https://attack.mitre.org/techniques/T1033
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1033
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 1
+    Image|endswith: \whoami.exe
+  condition: selection
+falsepositives:
+  - Troubleshooting or helpdesk checks
+level: low

@@ -1,0 +1,24 @@
+title: Suspicious Rundll32 Execution from Non-System Path
+id: f81534eb-0aec-43d9-a625-d7955127a641
+status: experimental
+description: Rundll32 loading DLLs outside System32 or SysWOW64
+references:
+  - https://attack.mitre.org/techniques/T1218/011
+author: Detection Engineering Lab
+date: 2026/11/20
+tags:
+  - attack.t1218.011
+logsource:
+  product: windows
+detection:
+  selection:
+    EventID: 1
+    Image|endswith: \rundll32.exe
+    CommandLine|contains:
+      - \AppData\
+      - \Temp\
+      - \Users\Public\
+  condition: selection
+falsepositives:
+  - Vendor installers invoking rundll32
+level: high
