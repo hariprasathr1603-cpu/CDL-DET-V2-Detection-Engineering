@@ -1,13 +1,32 @@
 Technique_ID,Technique_Name,Status,Rule_Ref
-T1197,Bitsadmin File Transfer Activity,Covered,win_bitsadmin_transfer.yml
-T1105,Certutil Used for File Download or Decode,Covered,win_certutil_download_decode.yml
-T1059,Encoded PowerShell Command Execution,Covered,win_encoded_powershell.yml
-T1003,Suspicious Process Access to LSASS,Partial,win_lsass_process_access.yml
-T1021,Suspicious Mshta Remote or Script Execution,Partial,win_mshta_remote_or_script.yml
-T1078,Domain or Local Group Enumeration via Net,Gaps,win_net_group_discovery.yml
-T1197,Remote Service Execution Pattern via PsExec,Covered,win_psexec_service_execution.yml
-T1105,Registry Run Key Persistence Modification,Covered,win_reg_run_key_persistence.yml
-T1059,Suspicious Rundll32 Execution from Non-System Path,Covered,win_rundll32_suspicious_dll.yml
-T1003,Scheduled Task Creation via Schtasks,Partial,win_schtasks_create_persistence.yml
-T1021,Suspicious Mshta Remote or Script Execution,Partial,win_suspicious_vbs_launcher.yml
-T1078,Account Discovery via Whoami Execution,Gaps,win_whoami_discovery.yml
+T1197,Multiple Failed SSH Authentication Attempts,Covered,lnx_ssh_failed_login_burst.yml
+T1105,Bitsadmin File Transfer Activity,Covered,win_bitsadmin_transfer.yml
+T1059,Certutil Used for File Download or Decode,Covered,win_certutil_download_decode.yml
+T1003,Encoded PowerShell Command Execution,Partial,win_encoded_powershell.yml
+T1021,Multiple Failed Logon Attempts Burst,Partial,win_failed_logon_burst.yml
+T1078,Suspicious Process Access to LSASS,Gaps,win_lsass_process_access.yml
+T1197,Suspicious Mshta Remote or Script Execution,Covered,win_mshta_remote_or_script.yml
+T1105,Domain or Local Group Enumeration via Net,Covered,win_net_group_discovery.yml
+T1059,Account and Group Enumeration via Net Commands,Covered,win_net_user_discovery.yml
+T1003,New Local User Account Created,Partial,win_new_local_user_created.yml
+T1021,Remote Service Execution Pattern via PsExec,Partial,win_psexec_service_execution.yml
+T1078,Registry Run Key Persistence Modification,Gaps,win_reg_run_key_persistence.yml
+T1197,Suspicious Rundll32 Execution from Non-System Path,Covered,win_rundll32_suspicious_dll.yml
+T1105,Scheduled Task Creation via Schtasks,Covered,win_schtasks_create_persistence.yml
+T1059,Suspicious Mshta Remote or Script Execution,Covered,win_suspicious_vbs_launcher.yml
+T1003,Account Discovery via Whoami Execution,Partial,win_whoami_discovery.yml
+T1047,Windows Management Instrumentation,Partial,unmapped_partial
+T1204,User Execution,Partial,unmapped_partial
+T1569,System Services,Gaps,unmapped_gap
+T1106,Native API,Gaps,unmapped_gap
+T1218,System Binary Proxy Execution,Covered,win_rundll32_suspicious_dll.yml
+T1562,Impair Defenses,Gaps,unmapped_gap
+T1070,Indicator Removal,Gaps,unmapped_gap
+T1036,Masquerading,Gaps,unmapped_gap
+T1053,Scheduled Task/Job,Covered,win_schtasks_create_persistence.yml
+T1547,Boot or Logon Autostart Execution,Gaps,win_reg_run_key_persistence.yml
+T1136,Create Account,Partial,win_new_local_user_created.yml
+T1543,Create or Modify System Process,Gaps,unmapped_gap
+T1110,Brute Force,Partial,win_failed_logon_burst.yml
+T1558,Steal or Forge Kerberos Tickets,Gaps,unmapped_gap
+T1552,Unsecured Credentials,Gaps,unmapped_gap

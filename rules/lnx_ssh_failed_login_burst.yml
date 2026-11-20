@@ -1,0 +1,21 @@
+title: Multiple Failed SSH Authentication Attempts
+id: 3b7c8a10-4f21-4d9e-b812-1a2b3c4d5e16
+status: test
+description: Detects repeated failed SSH login attempts in Linux authentication logs.
+author: Security Lab
+date: 2026/11/20
+tags:
+    - attack.credential_access
+logsource:
+    product: linux
+    service: auth
+detection:
+    selection:
+        message|contains:
+            - 'Failed password for'
+            - 'Invalid user'
+    timeframe: 5m
+    condition: selection | count() > 10
+falsepositives:
+    - Mistyped SSH passwords or keys
+level: medium

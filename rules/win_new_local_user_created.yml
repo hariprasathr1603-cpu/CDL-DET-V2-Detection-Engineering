@@ -1,0 +1,18 @@
+title: New Local User Account Created
+id: 3b7c8a10-4f21-4d9e-b812-1a2b3c4d5e15
+status: stable
+description: Detects creation of a new local user account on a Windows host.
+author: Security Lab
+date: 2026/11/20
+tags:
+    - attack.persistence
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4720
+    condition: selection
+falsepositives:
+    - Authorized account provisioning
+level: medium

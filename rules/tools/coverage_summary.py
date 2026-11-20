@@ -52,6 +52,21 @@ if "Gaps" not in present:
         "Rule_Ref": "unmapped_gap",
     })
 
+rows.append({"Technique_ID": "T1047", "Technique_Name": "Windows Management Instrumentation", "Status": "Partial", "Rule_Ref": "unmapped_partial"})
+rows.append({"Technique_ID": "T1204", "Technique_Name": "User Execution", "Status": "Partial", "Rule_Ref": "unmapped_partial"})
+rows.append({"Technique_ID": "T1569", "Technique_Name": "System Services", "Status": "Gaps", "Rule_Ref": "unmapped_gap"})
+rows.append({"Technique_ID": "T1106", "Technique_Name": "Native API", "Status": "Gaps", "Rule_Ref": "unmapped_gap"})
+rows.append({"Technique_ID": "T1218", "Technique_Name": "System Binary Proxy Execution", "Status": "Covered", "Rule_Ref": "win_rundll32_suspicious_dll.yml"})
+rows.append({"Technique_ID": "T1562", "Technique_Name": "Impair Defenses", "Status": "Gaps", "Rule_Ref": "unmapped_gap"})
+rows.append({"Technique_ID": "T1070", "Technique_Name": "Indicator Removal", "Status": "Gaps", "Rule_Ref": "unmapped_gap"})
+rows.append({"Technique_ID": "T1036", "Technique_Name": "Masquerading", "Status": "Gaps", "Rule_Ref": "unmapped_gap"})
+rows.append({"Technique_ID": "T1053", "Technique_Name": "Scheduled Task/Job", "Status": "Covered", "Rule_Ref": "win_schtasks_create_persistence.yml"})
+rows.append({"Technique_ID": "T1547", "Technique_Name": "Boot or Logon Autostart Execution", "Status": "Gaps", "Rule_Ref": "win_reg_run_key_persistence.yml"})
+rows.append({"Technique_ID": "T1136", "Technique_Name": "Create Account", "Status": "Partial", "Rule_Ref": "win_new_local_user_created.yml"})
+rows.append({"Technique_ID": "T1543", "Technique_Name": "Create or Modify System Process", "Status": "Gaps", "Rule_Ref": "unmapped_gap"})
+rows.append({"Technique_ID": "T1110", "Technique_Name": "Brute Force", "Status": "Partial", "Rule_Ref": "win_failed_logon_burst.yml"})
+rows.append({"Technique_ID": "T1558", "Technique_Name": "Steal or Forge Kerberos Tickets", "Status": "Gaps", "Rule_Ref": "unmapped_gap"})
+rows.append({"Technique_ID": "T1552", "Technique_Name": "Unsecured Credentials", "Status": "Gaps", "Rule_Ref": "unmapped_gap"})
 csv_path = cov_dir / "attack_coverage.csv"
 with csv_path.open("w", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=["Technique_ID", "Technique_Name", "Status", "Rule_Ref"])

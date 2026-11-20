@@ -1,0 +1,24 @@
+title: Account and Group Enumeration via Net Commands
+id: 3b7c8a10-4f21-4d9e-b812-1a2b3c4d5e13
+status: test
+description: Detects account and privilege group discovery using net or net1 commands.
+author: Security Lab
+date: 2026/11/20
+tags:
+    - attack.discovery
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith:
+            - '\net.exe'
+            - '\net1.exe'
+        CommandLine|contains:
+            - ' user '
+            - ' localgroup administrators'
+            - ' group "Domain Admins"'
+    condition: selection
+falsepositives:
+    - Routine administrative checks
+level: low
