@@ -1,0 +1,22 @@
+﻿title: Suspicious VBScript Execution Launching Script Host
+id: 7a4b9c12-3d5e-4f8a-9b1c-2e4d6f8a0b1c
+status: experimental
+description: Detects execution of VBScript files via wscript or cscript which may indicate scripted launcher activity.
+author: Hari
+date: 2026/11/20
+tags:
+    - attack.execution
+    - attack.t1059.005
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith:
+            - '\wscript.exe'
+            - '\cscript.exe'
+        CommandLine|contains: '.vbs'
+    condition: selection
+falsepositives:
+    - Legitimate administrative logon or deployment scripts
+level: medium

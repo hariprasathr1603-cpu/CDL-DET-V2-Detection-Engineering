@@ -1,0 +1,7 @@
+﻿@
+*.json
+*.zip
+*.evtx
+.venv/
+__pycache__/
+@
