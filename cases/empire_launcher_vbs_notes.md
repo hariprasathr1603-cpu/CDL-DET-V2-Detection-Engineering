@@ -8,3 +8,9 @@
 
 - **Post-Execution Recon (EventID 1):** Observed powershell.exe spawning whoami.exe, indicating discovery activity following script execution.
 - **Additional Rule Added:** ules/win_suspicious_ps_recon.yml (MITRE ATT&CK T1033).
+  
+  
+## Case 2 Timeline: WScript Launcher & Incomplete Telemetry  
+- **Step 1 (Script Host Execution):** wscript.exe invoked with C:\Users\pgustavo\Desktop\launcher.vbs (MITRE ATT&CK T1059.005).  
+- **Step 2 (Telemetry Gap / Inconclusive Fields):** Follow-on events showed missing/NaN CommandLine and ParentImage values in subset rows.  
+- **Closure Classification:** Inconclusive / Needs Enrichment (suspicious VBS launcher observed; incomplete parent/command-line telemetry on secondary rows).  
