@@ -10,3 +10,12 @@ This detection engineering project analyzes Windows process and script execution
   
 ## Response Readiness  
 Built step-by-step triage playbooks (pb_01 to pb_03) and an IOC reference table with context and detection/triage use.  
+## Coverage Gaps & Telemetry Notes
+- Document key blind spots or missing/NaN fields (such as incomplete `CommandLine` or `ParentImage` values on subset events) and rules/techniques needing extra telemetry.
+
+## Confirmed Incidents & Threat Hunting Outcomes
+- Summarize confirmed detections/incidents from your case reports (`empire_launcher_vbs_notes.md` and `case_02_incident_report.md`), correlation hits, and threat hunting results.
+
+## Recommendations
+- Prioritize telemetry enrichment/logging fixes, rule tuning for noisy patterns, and response playbook coverage for high-risk techniques.
+-
